@@ -8,4 +8,5 @@
     <string name="total_pizzas">Total pizzas: ?</string>
     <string name="total_pizzas_num">Total pizzas: %d</string>
     <string name="calculate">Calculate</string>
+    <string name="must_be_a_whole_number">Must be a whole number</string>
 </resources>

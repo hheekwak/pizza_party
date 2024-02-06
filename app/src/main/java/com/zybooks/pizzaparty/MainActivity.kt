@@ -1,6 +1,8 @@
 package com.zybooks.pizzaparty
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
 import android.widget.RadioGroup
@@ -25,6 +27,20 @@ class MainActivity : AppCompatActivity() {
         numAttendEditText = findViewById(R.id.num_attend_edit_text)
         numPizzasTextView = findViewById(R.id.num_pizzas_text_view)
         howHungryRadioGroup = findViewById(R.id.hungry_radio_group)
+
+        val numberErrorMessage = findViewById<TextView>(R.id.number_error_message)
+        numAttendEditText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+                numberErrorMessage.visibility = View.VISIBLE
+            }
+
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if (s.isNotEmpty()) {
+                    numberErrorMessage.visibility = View.INVISIBLE
+                }
+            }
+            override fun afterTextChanged(s: Editable) {}
+        })
     }
 
     fun calculateClick(view: View) {
