@@ -30,10 +30,10 @@ class MainActivity : AppCompatActivity() {
 
         val numberErrorMessage = findViewById<TextView>(R.id.number_error_message)
         numAttendEditText.addTextChangedListener(object : TextWatcher {
+            //gives direction for input
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
                 numberErrorMessage.visibility = View.VISIBLE
             }
-
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 if (s.isNotEmpty()) {
                     numberErrorMessage.visibility = View.INVISIBLE
@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         val numAttendStr = numAttendEditText.text.toString()
 
         // Convert the text into an integer
+        // When empty string is entered, assign 0 as default
         val numAttend = numAttendStr.toIntOrNull() ?: 0
 
         // Get hunger level selection
